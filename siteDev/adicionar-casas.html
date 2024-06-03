@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ajudando Lares - Adicionar Casa</title>
-    <link rel="stylesheet" href="../principal/styles.css">
+    <link rel="stylesheet" href="style-dev.css">
 </head>
 <body>
 
 <header>
     <nav>
-        <a href="../principal/home.html" class="nav-button">Home</a>
-        <a href="adicionar-casas.html" class="nav-button">Adicionar Casa</a>
+        <a href="../principal/lares.html" class="nav-button">Home</a>
     </nav>
 </header>
 
@@ -33,6 +32,11 @@
 
         <label for="contatos">Contatos:</label>
         <div id="contatos-options">
+            <input type="checkbox" id="site-checkbox" name="site" onchange="toggleCampoTexto('site')"> Site<br>
+                <div id="site-campo" style="display: none;">
+                    <input type="text" id="site" name="site">
+                </div>
+
             <input type="checkbox" id="telefone-checkbox" name="telefone" onchange="toggleCampoTexto('telefone')"> Telefone<br>
                 <div id="telefone-campo" style="display: none;">
                     <input type="text" id="telefone" name="telefone">
@@ -41,11 +45,6 @@
             <input type="checkbox" id="email-checkbox" name="email" onchange="toggleCampoTexto('email')"> Email<br>
                 <div id="email-campo" style="display: none;">
                     <input type="email" id="email" name="email">
-                </div>
-
-            <input type="checkbox" id="site-checkbox" name="site" onchange="toggleCampoTexto('site')"> Site<br>
-                <div id="site-campo" style="display: none;">
-                    <input type="text" id="site" name="site">
                 </div>
         </div>
 

@@ -1,0 +1,192 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F2F1EC;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    position: relative; /* adicione essa propriedade para que o ::after seja posicionado corretamente */
+}
+  
+header::after {
+content: "";
+display: block;
+border-top: 5px solid #365B6D;
+width: calc(95%); /* ajuste a largura máxima para a sua necessidade */
+margin: 10px auto; /* adicione espaçamento de 20px entre a linha e o cabeçalho */
+position: absolute; /* posicione o ::after embaixo do cabeçalho */
+bottom: 0; /* posicione o ::after no final do cabeçalho */
+left: 0; /* posicione o ::after no início do cabeçalho */
+right: 0; /* posicione o ::after no final do cabeçalho */
+}
+
+.logo-botoes {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 25%;
+    margin-right: 20px;
+}
+
+nav {
+    flex-grow: 1; /* adicionado */
+    text-align: right; /* adicionado */
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav li {
+    margin-right: 30px;
+    margin-inline: 30px;
+}
+
+nav a {
+    font-size: 20px;
+    color: #365B6D;
+    text-decoration: none;
+}
+
+.lares {
+    margin-top: 40px;
+}
+
+.card {
+    background-color: #F2F1EC;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #41C1BA;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px;
+    float: left; /* Faz com que as "caixas" sejam exibidas em linha */
+    box-sizing: border-box; /* Inclui a largura da borda e do preenchimento no cálculo da largura */
+    width: calc(25% - 20px); /* Define a largura da "caixa" com margem */
+}
+
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.card h3 {
+    margin-top: 0;
+    color: #365B6D;
+}
+
+.cardp {
+    margin-bottom: 20px;
+    color: #365B6D;
+}
+
+.btn {
+    background-color: #365B6D;
+    color: #F2F1EC;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #41C1BA;
+}
+
+footer {
+    background-color: #41C1BA;
+    padding: 10px;
+    text-align: center;
+    clear: both;
+    width: 100%;
+    color: #365B6D;
+}
+
+.contato-info {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: none;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    z-index: 100;
+}
+
+.contato-info .contato-info-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.fechar-info {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #333;
+}
+
+.contato-info h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.contato-info p {
+    margin-bottom: 10px;
+}
+
+.contato-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.contato-info li {
+    margin-bottom: 10px;
+}
+
+.contato-info li a,
+.contato-info li i {
+    text-decoration: none;
+    color: #333;
+}
+
+.contato-info .fechar-info {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contato-info .fechar-info:hover {
+    background-color: #555;
+}
