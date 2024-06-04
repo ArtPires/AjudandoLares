@@ -120,9 +120,9 @@ footer {
     position: fixed;
     top: 50%;
     left: 50%;
-    width: 300px;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    transform: translate(-50%, -50%);
+    width: 500px;
+    background-color: #F2F1EC;
     z-index: 1000;
     display: none;
     border-radius: 10px;
@@ -179,14 +179,10 @@ footer {
 }
 
 .contato-info .fechar-info {
-    background-color: #333;
-    color: white;
+    background-color: #F2F1EC;
+    color: rgb(0, 0, 0);
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-}
-
-.contato-info .fechar-info:hover {
-    background-color: #555;
 }

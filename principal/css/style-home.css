@@ -1,26 +1,28 @@
 body {
-    font-family: sans-serif;
+    font-family: Arial, sans-serif;
     margin: 0;
-    background-color: #f2f2f2;
-  }
-  header {
+    padding: 0;
+    background-color: #F2F1EC;
+}
+
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px;
+    padding: 20px;
     position: relative; /* adicione essa propriedade para que o ::after seja posicionado corretamente */
 }
   
 header::after {
-content: "";
-display: block;
-border-top: 5px solid #365B6D;
-width: calc(95%); /* ajuste a largura máxima para a sua necessidade */
-margin: 0px auto; /* adicione espaçamento de 20px entre a linha e o cabeçalho */
-position: absolute; /* posicione o ::after embaixo do cabeçalho */
-bottom: 0; /* posicione o ::after no final do cabeçalho */
-left: 0; /* posicione o ::after no início do cabeçalho */
-right: 0; /* posicione o ::after no final do cabeçalho */
+    content: "";
+    display: block;
+    border-top: 5px solid #365B6D;
+    width: calc(95%); /* ajuste a largura máxima para a sua necessidade */
+    margin: 10px auto; /* adicione espaçamento de 20px entre a linha e o cabeçalho */
+    position: absolute; /* posicione o ::after embaixo do cabeçalho */
+    bottom: 0; /* posicione o ::after no final do cabeçalho */
+    left: 0; /* posicione o ::after no início do cabeçalho */
+    right: 0; /* posicione o ::after no final do cabeçalho */
 }
 
 .logo-botoes {
@@ -54,56 +56,62 @@ nav li {
 nav a {
     font-size: 20px;
     color: #365B6D;
-    text-decoration: none;
+    text-decoration: none;
 }
-  .container {
+
+.container {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
     margin-top: 20px;
-  }
+}
   
  
-  .content {
+.content {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     padding: 20px;
     text-align: center;
+    margin-top: 3%;
+}
   
-  }
-  
-  .content p {
-    max-width:60%;
+.content p {
+    max-width:55%;
     margin: 50px  auto 0;
-  }
+    text-align: center;
+    font-size: 45px;
+    font-weight: bold;
+}
   
-  .cta-button {
+.cta-button {
     display: none;
-    background-color: #337ab7;
+    background-color: #365B6D;
     color: #fff;
     padding: 15px 30px;
     border: none;
-    border-radius: 5px;
+    border-radius: 30px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 30px;
+    font-weight: bold;
     transition: background-color 0.3s;
-  }
+    text-decoration: none;
+}
   
-  .cta-button:hover {
-    background-color: #286090;
-  }
-  
+.cta-button:hover {
+    background-color: #41C1BA;
+}
 
-  .cta-button.visible {
+
+.cta-button.visible {
     display: block;
     margin-top: 60px;
-  }
+}
 
-  .image-container {
-    background-image: url(voluntariado-internacional-1.jpg);
+.image-container {
+    background-image: url(/imagens/utils/voluntariado-internacional-1.jpg);
     background-size: cover; /* faz com que a imagem ocupe a página inteira */
     background-position: center; /* centraliza a imagem */
     width: 100vw; /* define a largura como 100% da viewport */
@@ -112,7 +120,5 @@ nav a {
     top: 0; /* posiciona a imagem no topo da página */
     left: 0; /* posiciona a imagem à esquerda da página */
     z-index: -1; /* posiciona a imagem atrás de outros elementos */
-    opacity: 0.5; /* define a transparência da imagem */
-  }
-  
-   
+    opacity: 0.18; /* define a transparência da imagem */
+}
