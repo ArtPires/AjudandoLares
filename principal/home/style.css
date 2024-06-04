@@ -1,0 +1,118 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background-color: #f2f2f2;
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    position: relative; /* adicione essa propriedade para que o ::after seja posicionado corretamente */
+}
+  
+header::after {
+content: "";
+display: block;
+border-top: 5px solid #365B6D;
+width: calc(95%); /* ajuste a largura máxima para a sua necessidade */
+margin: 0px auto; /* adicione espaçamento de 20px entre a linha e o cabeçalho */
+position: absolute; /* posicione o ::after embaixo do cabeçalho */
+bottom: 0; /* posicione o ::after no final do cabeçalho */
+left: 0; /* posicione o ::after no início do cabeçalho */
+right: 0; /* posicione o ::after no final do cabeçalho */
+}
+
+.logo-botoes {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 25%;
+    margin-right: 20px;
+}
+
+nav {
+    flex-grow: 1; /* adicionado */
+    text-align: right; /* adicionado */
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav li {
+    margin-right: 30px;
+    margin-inline: 30px;
+}
+
+nav a {
+    font-size: 20px;
+    color: #365B6D;
+    text-decoration: none;
+}
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  
+ 
+  .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+  
+  }
+  
+  .content p {
+    max-width:60%;
+    margin: 50px  auto 0;
+  }
+  
+  .cta-button {
+    display: none;
+    background-color: #337ab7;
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  .cta-button:hover {
+    background-color: #286090;
+  }
+  
+
+  .cta-button.visible {
+    display: block;
+    margin-top: 60px;
+  }
+
+  .image-container {
+    background-image: url(voluntariado-internacional-1.jpg);
+    background-size: cover; /* faz com que a imagem ocupe a página inteira */
+    background-position: center; /* centraliza a imagem */
+    width: 100vw; /* define a largura como 100% da viewport */
+    height: 100vh; /* define a altura como 100% da viewport */
+    position: absolute; /* posiciona a imagem em relação à página */
+    top: 0; /* posiciona a imagem no topo da página */
+    left: 0; /* posiciona a imagem à esquerda da página */
+    z-index: -1; /* posiciona a imagem atrás de outros elementos */
+    opacity: 0.5; /* define a transparência da imagem */
+  }
+  
+   
