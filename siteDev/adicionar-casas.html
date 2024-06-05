@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajudando Lares - Adicionar Casa</title>
+    <link rel="stylesheet" href="style-dev.css">
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="/principal/html/lares.html" class="nav-button">Home</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h2>Cadastrar Casa</h2>
+    <!-- Formulário para adicionar casa -->
+    <form id="form-casa" action="#" method="post" onsubmit="cadastrarCasa(event)">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+
+        <label for="descricao">Descrição:</label>
+        <textarea id="descricao" name="descricao" rows="4" required></textarea>
+
+        <label for="endereco">Endereço:</label>
+        <input type="text" id="endereco" name="endereco" required>
+
+        <label for="imagem">Link da imagem:</label>
+        <input type="text" id="imagem" name="imagem" required>
+
+        <label for="contatos">Contatos:</label>
+        <div id="contatos-options">
+            <input type="checkbox" id="site-checkbox" name="site" onchange="toggleCampoTexto('site')"> Site<br>
+                <div id="site-campo" style="display: none;">
+                    <input type="text" id="site" name="site">
+                </div>
+
+            <input type="checkbox" id="telefone-checkbox" name="telefone" onchange="toggleCampoTexto('telefone')"> Telefone<br>
+                <div id="telefone-campo" style="display: none;">
+                    <input type="text" id="telefone" name="telefone">
+                </div>
+
+            <input type="checkbox" id="email-checkbox" name="email" onchange="toggleCampoTexto('email')"> Email<br>
+                <div id="email-campo" style="display: none;">
+                    <input type="email" id="email" name="email">
+                </div>
+        </div>
+
+        <input type="submit" value="Cadastrar">
+    </form>
+
+    <div id="mensagem"></div> <!-- Elemento para mostrar a mensagem de sucesso -->
+    <button onclick="excluirCasas()">Excluir Casas</button>
+</div>
+
+<script>
+    // Função para lidar com o envio do formulário
+    function cadastrarCasa(event) {
+        event.preventDefault(); // Evitar o comportamento padrão de enviar o formulário
+
+        // Obter os valores do formulário
+        var nome = document.getElementById("nome").value;
+        var descricao = document.getElementById("descricao").value;
+        var endereco = document.getElementById("endereco").value;
+        var linkImagem = "../imagens/fotos-casas/" + document.getElementById("imagem").value; // Obter o link da imagem
+
+        // Obter os contatos selecionados
+        var contatosSelecionados = [];
+        var checkboxes = document.querySelectorAll('input[type=checkbox]:checked');
+        checkboxes.forEach(function(checkbox) {
+            contatosSelecionados.push(checkbox.name);
+        });
+
+        // Obter os valores dos campos de texto correspondentes aos contatos selecionados
+        var contatosValores = {};
+        contatosSelecionados.forEach(function(contato) {
+            contatosValores[contato] = document.getElementById(contato).value;
+        });
+
+        // Criar um objeto representando a casa
+        var casa = {
+            nome: nome,
+            descricao: descricao,
+            endereco: endereco,
+            imagem: linkImagem, // Armazenar o link da imagem na casa
+            contatos: contatosValores // Armazenar os contatos selecionados e seus valores na casa
+        };
+
+        // Verificar se já existem casas cadastradas
+        var casas = JSON.parse(localStorage.getItem("casas")) || [];
+
+        // Adicionar a nova casa à lista de casas
+        casas.push(casa);
+
+        // Salvar a lista de casas atualizada no armazenamento local
+        localStorage.setItem("casas", JSON.stringify(casas));
+
+        // Limpar os campos do formulário
+        document.getElementById("nome").value = "";
+        document.getElementById("descricao").value = "";
+        document.getElementById("endereco").value = "";
+        document.getElementById("imagem").value = "";
+        document.getElementById("telefone").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("site").value = "";
+        
+        // Desmarcar as checkboxes selecionadas
+        checkboxes.forEach(function(checkbox) {
+            checkbox.checked = false;
+        });
+
+        // Exibir mensagem de sucesso
+        var mensagem = document.getElementById("mensagem");
+        mensagem.textContent = "Casa adicionada com sucesso!";
+        mensagem.style.color = "green";
+
+        // Limpar a mensagem após 3 segundos
+        setTimeout(function() {
+            mensagem.textContent = "";
+        }, 3000);
+    }
+
+    // Função para excluir todas as casas cadastradas
+    function excluirCasas() {
+        if (confirm("Tem certeza que deseja excluir todas as casas?")) {
+            localStorage.removeItem("casas");
+            alert("Todas as casas foram excluídas com sucesso.");
+        }
+    }
+
+    // Função para mostrar ou ocultar o campo de texto correspondente ao contato selecionado
+    function toggleCampoTexto(contato) {
+        var campo = document.getElementById(contato + "-campo");
+        var checkbox = document.getElementById(contato + "-checkbox");
+        if (checkbox.checked) {
+            campo.style.display = "block";
+        } else {
+            campo.style.display = "none";
+        }
+    }
+</script>
+
+<footer>
+    <p>&copy; 2024 Minha Loja Online. Todos os direitos reservados.</p>
+</footer>
+
+</body>
+</html>

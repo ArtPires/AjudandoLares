@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajudando Lares - Login</title>
+    <link rel="stylesheet" href="style-dev.css">
+</head>
+<body>
+
+<div class="login-container">
+    <h2>Login</h2>
+    <!-- Formulário de login -->
+    <form id="form-login" onsubmit="login(event)">
+        <label for="username">Usuário:</label>
+        <input type="username" id="username" name="username" required>
+
+        <label for="password">Senha:</label>
+        <input type="password" id="password" name="password" required>
+
+        <input type="submit" value="Entrar">
+    </form>
+
+    <div id="login-message"></div> <!-- Elemento para mostrar a mensagem de erro -->
+</div>
+
+<script>
+    // Função para verificar o login
+    function login(event) {
+        event.preventDefault(); // Evitar o comportamento padrão de enviar o formulário
+
+        // Obter os valores do formulário
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+
+        // Verificar se o usuário e a senha estão corretos (exemplo)
+        if (username === "dev" && password === "dev") {
+            // Se o login for bem-sucedido, redirecionar para a página de adicionar casas
+            window.location.href = "adicionar-casas.html";
+        } else {
+            // Se o login falhar, exibir mensagem de erro
+            var loginMessage = document.getElementById("login-message");
+            loginMessage.textContent = "Usuário ou senha incorretos.";
+            loginMessage.style.color = "red";
+        }
+    }
+</script>
+</body>
+</html>
