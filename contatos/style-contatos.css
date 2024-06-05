@@ -1,0 +1,123 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background-color: #f2f2f2;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    position: relative; /* adicione essa propriedade para que o ::after seja posicionado corretamente */
+}
+  
+header::after {
+    content: "";
+    display: block;
+    border-top: 5px solid #365B6D;
+    width: calc(95%); /* ajuste a largura máxima para a sua necessidade */
+    margin: 0px auto; /* adicione espaçamento de 20px entre a linha e o cabeçalho */
+    position: absolute; /* posicione o ::after embaixo do cabeçalho */
+    bottom: 0; /* posicione o ::after no final do cabeçalho */
+    left: 0; /* posicione o ::after no início do cabeçalho */
+    right: 0; /* posicione o ::after no final do cabeçalho */
+}
+
+.logo-botoes {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 25%;
+    margin-right: 20px;
+}
+
+nav {
+    flex-grow: 1; /* adicionado */
+    text-align: right; /* adicionado */
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav li {
+    margin-right: 30px;
+    margin-inline: 30px;
+}
+
+nav a {
+    font-size: 20px;
+    color: #365B6D;
+    text-decoration: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.content {
+    background-color: #41C1BA;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    border: 1px solid #365B6D;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    position: relative; /* Necessário para posicionar o h3 */
+}
+
+h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: left;
+    align-self: flex-start; /* adiciona essa linha para alinhar o título à esquerda */
+}
+  
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    margin-top: 20px;
+}
+  
+.contact-form label {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+  
+.contact-form input[type="email"],
+.contact-form input[type="text"],
+.contact-form textarea {
+    border: 1px solid #365B6D;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 100% - 20px; /* ajusta a largura das caixas de respostas */
+}
+  
+  .image-upload {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .image-upload label {
+    background-color: #365B6D;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
