@@ -1,14 +1,15 @@
 body {
-    font-family: sans-serif;
+    font-family: Arial, sans-serif;
     margin: 0;
-    background-color: #f2f2f2;
+    padding: 0;
+    background-color: #F2F1EC;
 }
 
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px;
+    padding: 20px;
     position: relative; /* adicione essa propriedade para que o ::after seja posicionado corretamente */
 }
   
@@ -17,7 +18,7 @@ header::after {
     display: block;
     border-top: 5px solid #365B6D;
     width: calc(95%); /* ajuste a largura máxima para a sua necessidade */
-    margin: 0px auto; /* adicione espaçamento de 20px entre a linha e o cabeçalho */
+    margin: 10px auto; /* adicione espaçamento de 20px entre a linha e o cabeçalho */
     position: absolute; /* posicione o ::after embaixo do cabeçalho */
     bottom: 0; /* posicione o ::after no final do cabeçalho */
     left: 0; /* posicione o ::after no início do cabeçalho */
@@ -55,7 +56,7 @@ nav li {
 nav a {
     font-size: 20px;
     color: #365B6D;
-    text-decoration: none;
+    text-decoration: none;
 }
 
 .container {
