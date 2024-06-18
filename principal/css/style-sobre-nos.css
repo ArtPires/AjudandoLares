@@ -1,0 +1,97 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F2F1EC;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    position: relative; /* adicione essa propriedade para que o ::after seja posicionado corretamente */
+}
+  
+header::after {
+content: "";
+display: block;
+border-top: 5px solid #365B6D;
+width: calc(95%); /* ajuste a largura máxima para a sua necessidade */
+margin: 10px auto; /* adicione espaçamento de 20px entre a linha e o cabeçalho */
+position: absolute; /* posicione o ::after embaixo do cabeçalho */
+bottom: 0; /* posicione o ::after no final do cabeçalho */
+left: 0; /* posicione o ::after no início do cabeçalho */
+right: 0; /* posicione o ::after no final do cabeçalho */
+}
+
+.logo-botoes {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 25%;
+    margin-right: 20px;
+}
+
+nav {
+    flex-grow: 1; /* adicionado */
+    text-align: right; /* adicionado */
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav li {
+    margin-right: 30px;
+    margin-inline: 30px;
+}
+
+nav a {
+    font-size: 20px;
+    color: #365B6D;
+    text-decoration: none;
+}
+
+footer {
+    background-color: #41C1BA;
+    padding: 10px;
+    text-align: center;
+    clear: both;
+    width: 100%;
+    color: #365B6D;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 2rem;
+    float: left; /* Faz com que as "caixas" sejam exibidas em linha */
+    box-sizing: border-box; /* Inclui a largura da borda e do preenchimento no cálculo da largura */
+    width: calc(50%); /* Define a largura da "caixa" com margem */
+}
+
+.content-01 {
+    background-color: #41C1BA;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    border: 1px solid #365B6D;
+    align-items: left;
+    text-align: justify;
+}
+
+.content-02 {
+    background-color: #F2F1EC;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    align-items: left;
+    text-align: justify;
+}
