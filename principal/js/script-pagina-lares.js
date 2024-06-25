@@ -14,13 +14,14 @@ function exibirCasas(casas) {
     casas.forEach(function(casa, index) {
         var cardDiv = document.createElement("div");
         cardDiv.classList.add("card"); // Adiciona a classe "card" à div da casa
+        cardDiv.dataset.houseData = JSON.stringify(casa);
 
         cardDiv.innerHTML = `
             <img src="/imagens/${casa.imagem}" alt="${casa.nome}">
             <h3>${casa.nome}</h3>
             <p>Descrição: ${casa.descricao}</p>
             <p>${casa.endereco}</p>
-            <button class="btn" data-target="#contato-info">Contato</button>
+            <button class="btn" data-target="#contato-info" data-house-data='${JSON.stringify(casa)}'>Contato</button>
         `;
 
         grid.appendChild(cardDiv);
@@ -39,12 +40,35 @@ exibirCasas();
 
 $(document).ready(function() {
     $('.btn').click(function(e) {
-        e.preventDefault();
-        var target = $(this).data('target');
-        $(target).fadeIn();
+      e.preventDefault();
+      var target = $(this).data('target');
+  
+      // Get the house data from the clicked item
+      var houseData = $(this).closest('.card').data('houseData');
+  
+      // Populate the contato-info div with house data
+      $('#contato-info h2').text(houseData.nome);
+      $('#descricao-contato').text(houseData.descricao);
+      $('#contato-list').empty(); // Clear existing contact details
+  
+      // Add contact details to the list
+      if (houseData.site) {
+        $('#contato-list').append(`<li><a href="${houseData.site}" target="_blank"><i class="fa fa-globe"></i> ${houseData.site}</a></li>`);
+      }
+      if (houseData.telefone) {
+        $('#contato-list').append(`<li><i class="fa fa-phone"></i> ${houseData.telefone}</li>`);
+      }
+      if (houseData.email) {
+        $('#contato-list').append(`<li><a href="mailto:${houseData.email}" target="_blank"><i class="fa fa-envelope"></i> ${houseData.email}</a></li>`);
+      }
+      if (houseData.endereco) {
+        $('#contato-list').append(`<li><i class="fa fa-map-marker"></i> ${houseData.endereco}</li>`);
+      }
+  
+      $(target).fadeIn();
     });
-
+  
     $('.fechar-info').click(function() {
-        $('.contato-info').fadeOut();
+      $('.contato-info').fadeOut();
     });
-});
+  });
